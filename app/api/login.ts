@@ -17,7 +17,7 @@ export default async (req: any, res: any) => {
             if (response.ok) {
                 res.status(200).json({ token: data.jwt });
             } else {
-                res.status(data.statusCode).json({ error: data.message[0].message[0].message });
+                res.status(data.statusCode).json({ error: data.message[0].messages[0].message });
             }
         } else {
             res.status(405).json({error: 'Method not allowed' });
