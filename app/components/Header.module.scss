@@ -2,14 +2,22 @@
     display: flex;
     width: 100%;
     background-color:#225088;
-    justify-content: space-between;
-    align-items: center;
+
+    align-items: center;    
+    nav {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
 }
+
 
 .menu {
     display: flex;
+    align-items: center;
     list-style-type: none;
     gap: 1rem;
+    width: 100%;
 
     a, p {
         color: white;
@@ -29,7 +37,17 @@
     }
 }
 
+.signOutBtn {
+    white-space: nowrap;
+}
+
 .buttonGroup{
     display: flex;
     gap: 1rem;
+
+    a
+    {
+        width: max-content;
+        white-space: nowrap;
+    }
 }

@@ -1,21 +1,24 @@
 "use client";
 import React, { useState, useEffect } from "react";
+import Cookies from "js-cookie";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import scss from "./login.module.scss";
 import { Typography } from "@mui/material";
-
-type UserData = {
-  authToke: string; //jwt
-  userName: string;
-  isLoggedIn: boolean;
-};
+import { UserDataType } from "../hooks/useUserData";
 
 const LoginPage = () => {
   const [identifier, setIdentifier] = useState("");
   const [password, setPassword] = useState("");
   const [loginError, setLoginError] = useState("");
-  const [userData, setUserData] = useState<UserData | null>(null);
+  const [userData, setUserData] = useState<UserDataType | null>(null);
+
+  useEffect(() => {
+    // When reading the cookie, parse the JSON data
+    const userDataCookie = Cookies.get("userData");
+    const parsedUserData = JSON.parse(userDataCookie || "{}") as UserDataType;
+    setUserData(parsedUserData);
+  }, []);
 
   const handleLogin = async (e: any) => {
     e.preventDefault();
@@ -35,8 +38,11 @@ const LoginPage = () => {
           userName: data.user.username,
           isLoggedIn: data.user.confirmed,
         };
+
+        Cookies.set("userData", JSON.stringify(userData), { expires: 30 });
+
         setUserData(userData);
-        console.log(userData);
+        location.reload();
       } else {
         setLoginError(data.message[0].messages[0].message);
       }
@@ -47,6 +53,8 @@ const LoginPage = () => {
   };
 
   const handleSignOut = () => {
+    Cookies.remove("userData");
+
     setUserData(null);
     console.log(userData);
   };

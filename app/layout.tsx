@@ -5,6 +5,7 @@ import { ThemeProvider, createTheme } from "@mui/material/styles";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Header from "@/app/components/Header";
+import useUserData, { UserDataType } from "@/app/hooks/useUserData";
 
 const darkTheme = createTheme({
   palette: {
@@ -22,6 +23,8 @@ export default function RootLayout({
     description: "Taijiquan E-Learning courses for the web learner",
   };
 
+  const userData = useUserData();
+
   return (
     <html lang="en">
       <body
@@ -33,7 +36,7 @@ export default function RootLayout({
         }}
       >
         <ThemeProvider theme={darkTheme}>
-          <Header />
+          <Header userData={userData} />
           {children}
         </ThemeProvider>
       </body>
