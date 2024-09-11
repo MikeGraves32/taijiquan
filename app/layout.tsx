@@ -1,17 +1,11 @@
 "use client";
-import "./globals.css";
-import React from "react";
-import { ThemeProvider, createTheme } from "@mui/material/styles";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import React, { createContext, useState } from "react";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
 import Header from "@/app/components/Header";
 import useUserData, { UserDataType } from "@/app/hooks/useUserData";
-
-const darkTheme = createTheme({
-  palette: {
-    mode: "dark",
-  },
-});
+import lightTheme from "./theme/lightTheme";
+import darkTheme from "./theme/darkTheme";
 
 export default function RootLayout({
   children,
@@ -21,16 +15,41 @@ export default function RootLayout({
   const metadata: Metadata = {
     title: "Taijiquan Courses",
     description: "Taijiquan E-Learning courses for the web learner",
+    keywords: "e-learning, video courses, software development, programming",
   };
+
+  const ThemeMUIMode = createContext({
+    toggleColorMode: () => {},
+  });
 
   const userData = useUserData();
 
+  const storedTheme = localStorage.getItem("theme");
+  const initialMode = storedTheme || "dark";
+
+  const [mode, setMode] = useState<"light" | "dark">(
+    initialMode as "light" | "dark"
+  );
+  const chosenTheme = mode === "dark" ? darkTheme : lightTheme;
   return (
     <html lang="en">
+      <head>
+        <title>{metadata.title as React.ReactNode}</title>
+        <meta charSet="UTF-8" />
+        <meta
+          name="description"
+          content={metadata.description as string | undefined}
+        />
+        <meta
+          name="keywords"
+          content={metadata.keywords as string | undefined}
+        />
+        <meta name="author" content="Curious Courses" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      </head>
       <body
         style={{
-          background: "black",
-          color: "white",
+          backgroundColor: chosenTheme?.palette?.background?.default,
           maxWidth: "80rem",
           margin: "auto",
         }}
