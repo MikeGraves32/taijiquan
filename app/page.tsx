@@ -1,5 +1,6 @@
 "use client";
-import CourseGrid from "./components/CourseGrid";
+import CourseCard from "./components/CourseCard";
+import CourseGrid from "./components/CourseGrid/CourseGrid";
 import Hero from "./components/Hero";
 import useFetchCoursesData from "./hooks/useFetchCoursesData";
 
@@ -9,7 +10,12 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <CourseGrid courseData={courses} />
+      <CourseCard
+        key={0}
+        title={courses[0]?.attributes?.title}
+        description={courses[0]?.attributes?.description}
+        courseId={courses[0]?.attributes?.courseId}
+      />
     </>
   );
 }

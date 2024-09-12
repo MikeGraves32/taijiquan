@@ -1,1 +1,1 @@
-export { default } from './ThemeToggle.tsx';
+export { default } from './ThemeToggler';

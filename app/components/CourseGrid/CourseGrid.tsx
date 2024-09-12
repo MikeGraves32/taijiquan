@@ -39,12 +39,13 @@ const CourseGrid = (props: CourseGridProps) => {
   return (
     <section className={scss.CourseGrid}>
       {courseData.map((course: CourseDataType) => (
-        <CourseCard
-          key={course.id}
-          courseId={course.id}
-          title={course.attributes.title}
-          description={course.attributes.description}
-        />
+        <div key={course.id}>
+          <CourseCard
+            courseId={course.id}
+            title={course.attributes.title}
+            description="test description"
+          />
+        </div>
       ))}
     </section>
   );

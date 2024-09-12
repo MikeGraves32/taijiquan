@@ -5,7 +5,7 @@ import Button from "@mui/material/Button";
 import { useRouter } from "next/navigation";
 import scss from "./Header.module.scss";
 import { Typography } from "@mui/material";
-import ThemeToggleButton from "@/app/components/ThemeToggleButton";
+import ThemeToggleButton from "@/app/components/ThemeToggler";
 import { UserDataType } from "@/app/hooks/useUserData";
 
 interface HeaderProps {
