@@ -37,7 +37,7 @@ const Header: React.FC<HeaderProps> = ({
           <li>
             <Button variant={"text"} href={"/"}>
               <Typography variant={"h6"} style={{ textTransform: "initial" }}>
-                CuriousCourses
+                Taijiquan Courses
               </Typography>
             </Button>
           </li>

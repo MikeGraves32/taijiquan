@@ -20,7 +20,7 @@ const useUserData = () => {
         const storageEventListener = (event: StorageEvent) => {
             if (event.key === 'userData'){
                 const updateUserData = JSON.parse(event.newValue || '{}') as UserDataType;
-                setUserData(updatedUserData);
+                setUserData(updateUserData);
             }
         };
 
