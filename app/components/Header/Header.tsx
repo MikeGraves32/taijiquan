@@ -5,30 +5,58 @@ import Button from "@mui/material/Button";
 import scss from "./Header.module.scss";
 import { Typography } from "@mui/material";
 import { UserDataType } from "@/app/hooks/useUserData";
+import ThemeToggler from "../ThemeToggler/ThemeToggler";
 
 export type HeaderProps = {
-  userData: UserDataType;
+  userData: UserDataType | null;
+  ColorModeContext: React.Context<{ toggleColorMode: () => void }>;
+  currentMode: "light" | "dark";
+  showLabel?: boolean;
 };
 
-const Header: React.FC<HeaderProps> = ({ userData }) => {
+const Header: React.FC<HeaderProps> = (props: HeaderProps) => {
+  const { userData, ColorModeContext, currentMode, showLabel } = props;
   return (
     <header className={scss.header}>
       <nav className={scss.nav}>
         <ul className={scss.menu}>
           <li>
-            <Link className={scss.logo} href="/">
-              <Typography variant="h6">Taijiquan Courses</Typography>
-            </Link>
+            <Button variant={"text"} href={"/"}>
+              <Typography variant="h6" style={{ textTransform: "initial" }}>
+                Taijiquan Courses
+              </Typography>
+            </Button>
           </li>
+
           <li>
             <Link href="/">
               <Typography>Home</Typography>
             </Link>
           </li>
-          <li>
-            <Link href="/profile">
-              <Typography>Profile</Typography>
-            </Link>
+          {!userData ? (
+            <>
+              <li>
+                <Link href="/login">
+                  <Typography>Login</Typography>
+                </Link>
+              </li>
+            </>
+          ) : (
+            <>
+              <li>
+                <Link href="/profile">
+                  <Typography>Profile</Typography>
+                </Link>
+              </li>
+            </>
+          )}
+          <li style={{ marginLeft: "auto" }}>
+            <ThemeToggler
+              ColorModeContext={ColorModeContext}
+              currentMode={currentMode}
+              showLabel={true}
+              userData={null}
+            />
           </li>
         </ul>
 
