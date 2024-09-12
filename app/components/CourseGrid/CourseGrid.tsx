@@ -35,18 +35,16 @@ export type LessonDataType = {
 
 const CourseGrid = (props: CourseGridProps) => {
   const { courseData } = props;
-
+  console.log(courseData);
   return (
     <section className={scss.CourseGrid}>
       {courseData.map((course: CourseDataType) => (
-        <div key={course.id}>
-          <CourseCard
-            key={course.id}
-            courseId={course.id}
-            title={course.attributes.title}
-            description={course.attributes.description}
-          />
-        </div>
+        <CourseCard
+          key={course.id}
+          courseId={course.id}
+          title={course.attributes.title}
+          description={course.attributes.description}
+        />
       ))}
     </section>
   );

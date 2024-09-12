@@ -2,6 +2,7 @@
 import React from "react";
 import useFetchCoursesData from "../hooks/useFetchCoursesData";
 import CourseGrid from "@/app/components/CourseGrid/CourseGrid";
+import { Typography } from "@mui/material";
 import CourseHeader from "@/app/components/CourseHeader";
 
 const CoursePage = () => {
@@ -12,7 +13,9 @@ const CoursePage = () => {
       <CourseHeader
         href={"/"}
         title={"Courses"}
-        description="Choose froom our many courses on Taijiquan Principles!"
+        description={
+          "Choose from our many courses on Frontend development and start your learning journey today!"
+        }
       />
       <CourseGrid courseData={courses} />
     </div>

@@ -1,11 +1,13 @@
 "use client";
-import CourseGrid from "./components/CourseGrid/CourseGrid";
-import Hero from "./components/Hero";
-import useFetchCoursesData from "./hooks/useFetchCoursesData";
+import { Typography } from "@mui/material";
+import CourseGrid from "@/app/components/CourseGrid/CourseGrid";
+import React from "react";
+import useFetchCoursesData from "@/app/hooks/useFetchCoursesData";
+import Hero from "@/app/components/Hero";
 
 export default function Home() {
   const courses = useFetchCoursesData();
-  console.log(courses);
+
   return (
     <>
       <Hero />

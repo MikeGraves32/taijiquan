@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { Avatar, Paper, Typography } from "@mui/material";
 import scss from "./CourseCard.module.scss";
+import Button from "@mui/material/Button";
 
 export type CourseCardProps = {
   key: number;
@@ -12,7 +13,6 @@ export type CourseCardProps = {
 
 const CourseCard = (props: CourseCardProps) => {
   const { key, title, description, courseId } = props;
-
   return (
     <Link
       className={scss.courseLink}
@@ -32,7 +32,7 @@ const CourseCard = (props: CourseCardProps) => {
           letterSpacing={3}
           sx={{ textTransform: "uppercase" }}
         >
-          Taijiquan Course
+          Course
         </Typography>
         <Typography
           variant={"body1"}
@@ -46,7 +46,7 @@ const CourseCard = (props: CourseCardProps) => {
         <Typography fontSize={"medium"}>{description}</Typography>
         <div className={scss.author} style={{ marginBottom: "1rem" }}>
           <Avatar sx={{ height: 34, width: 34 }} />
-          <Typography fontSize={"small"}>Mike Graves</Typography>
+          <Typography fontSize={"small"}>Harry Ashton</Typography>
         </div>
       </Paper>
     </Link>
