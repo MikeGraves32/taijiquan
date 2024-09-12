@@ -3,7 +3,7 @@ import { Metadata } from "next";
 import React, { createContext, useEffect, useMemo, useState } from "react";
 import Header from "@/app/components/Header";
 import useUserData from "@/app/hooks/useUserData";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { createTheme, ThemeProvider, useTheme } from "@mui/material/styles";
 import darkTheme from "@/app/theme/darkTheme";
 import lightTheme from "@/app/theme/lightTheme";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -14,9 +14,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   const metadata: Metadata = {
-    title: "CuriousCourses",
-    description: "Frontend courses for the web dev learner",
-    keywords: "e-learning, video courses, software development, programming",
+    title: "Taijiquan Courses",
+    description: "Principles of Taijiquan Courses",
+    keywords: "e-learning, video courses, Taijiquan, Qigong",
   };
 
   const ThemeMUIMode = createContext({
@@ -44,7 +44,13 @@ export default function RootLayout({
   );
 
   const userData = useUserData();
+  const theme = useTheme();
+
   const chosenTheme = mode === "dark" ? darkTheme : lightTheme;
+
+  useEffect(() => {
+    console.log(colorMode);
+  }, [theme, colorMode]);
 
   return (
     <ThemeMUIMode.Provider value={colorMode}>
