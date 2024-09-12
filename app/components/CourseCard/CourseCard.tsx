@@ -12,7 +12,6 @@ export type CourseCardProps = {
 
 const CourseCard = (props: CourseCardProps) => {
   const { key, title, description, courseId } = props;
-
   return (
     <Link
       className={scss.courseLink}
@@ -23,7 +22,7 @@ const CourseCard = (props: CourseCardProps) => {
         className={scss.CourseCard}
         key={key}
         variant={"elevation"}
-        sx={{ p: 2, bgcolor: "Background.default" }}
+        sx={{ p: 2, bgcolor: "background.default" }}
       >
         <Typography
           fontSize={12}
@@ -45,8 +44,8 @@ const CourseCard = (props: CourseCardProps) => {
         </Typography>
         <Typography fontSize={"medium"}>{description}</Typography>
         <div className={scss.author} style={{ marginBottom: "1rem" }}>
-          <Avatar />
-          <Typography fontSize={"small"}>Mike Graves</Typography>
+          <Avatar sx={{ height: 34, width: 34 }} />
+          <Typography fontSize={"small"}>Harry Ashton</Typography>
         </div>
       </Paper>
     </Link>
