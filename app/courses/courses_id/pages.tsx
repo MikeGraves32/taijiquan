@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import React from "react";
 import {
@@ -9,7 +10,7 @@ import {
   Paper,
 } from "@mui/material";
 import SlowMotionVideoIcon from "@mui/icons-material/SlowMotionVideo";
-import useFetchCoursesData from "@/app/hooks/useFetchCourseData";
+import useFetchCoursesData from "@/app/hooks/useFetchCoursesData";
 import PlayCircleIcon from "@mui/icons-material/PlayCircle";
 import IconButton from "@mui/material/IconButton";
 import PsychologyAltIcon from "@mui/icons-material/PsychologyAlt";

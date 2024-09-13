@@ -2,7 +2,6 @@ import React from "react";
 import Link from "next/link";
 import { Avatar, Paper, Typography } from "@mui/material";
 import scss from "./CourseCard.module.scss";
-import Button from "@mui/material/Button";
 
 export type CourseCardProps = {
   key: number;

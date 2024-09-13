@@ -1,6 +1,6 @@
 "use client";
 
-import { Typography } from "@mui/material/Typography";
+import Typography from "@mui/material/Typography";
 import { IconButton, useMediaQuery } from "@mui/material";
 import scss from "./ThemeToggler.module.scss";
 import Brightness7Icon from "@mui/icons-material/Brightness7";

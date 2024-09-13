@@ -1,6 +1,7 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import React from "react";
-import useFetchCoursesData from "../../../hooks/useFetchCourseData";
+import useFetchCoursesData from "../../../hooks/useFetchCoursesData";
 import { Typography } from "@mui/material";
 import Link from "next/link";
 

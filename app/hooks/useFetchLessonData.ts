@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 // hooks/useFetchLessonData.ts
 import { useEffect, useState } from "react";
 

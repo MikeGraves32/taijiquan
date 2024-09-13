@@ -23,7 +23,8 @@ export default function RootLayout({
     toggleColorMode: () => {},
   });
 
-  const storedTheme = localStorage.getItem("theme");
+  const storedTheme =
+    typeof window !== "undefined" ? localStorage.getItem("theme") : null;
   const initialMode = storedTheme || "dark";
   const [mode, setMode] = useState<"light" | "dark">(
     initialMode as "light" | "dark"
